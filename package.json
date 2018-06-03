@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run build-client && node ./server/server.js",
+    "serve-client": "cd ./client && npm start",
+    "build-client": "cd ./client && npm build",
+    "dev": "npm run serve-client & nodemon ./server/server.js",
+    "postinstall": "cd ./client && yarn",
+    "knex": "knex --knexfile ./db/config.js"
   },
   "keywords": [],
   "author": "",
