@@ -7,15 +7,15 @@ class App extends Component {
   state = {
     items: [],
     editing: false,
+    found: false,
     currentItem: {
       id: null,
       title: "",
       details: "",
-      edit_code: "",
+      edit_code:  Math.random().toString(36).slice(2, 5).toUpperCase(),
       reward: "",
       last_seen: "",
       location: "",
-      found: false,
       returned: false,
       phone: "",
       img_link: ""
@@ -26,20 +26,20 @@ class App extends Component {
     this.setState({
       items: items,
       editing: false,
-      currentItem: {
+      found: false,
+    currentItem: {
         id: null,
         title: "",
         details: "",
-        edit_code: "",
+      edit_code: Math.random().toString(36).slice(2, 5).toUpperCase(),
         reward: "",
         last_seen: "",
         location: "",
-        found: false,
         returned: false,
         phone: "",
         img_link: ""
       }
-    });
+    })
   }
 
   updateItem = (attr, value) => {
@@ -47,8 +47,8 @@ class App extends Component {
       { currentItem: { ...this.state.currentItem, [attr]: value } }
     )
   }
-  editItem = id => {
-    const item = this.state.items.find(i => i.id === id)
+  editItem = (id) => {
+    const item = this.state.items.find((i) => i.id === id)
     this.setState({editing: true, currentItem: item})
   }
 
@@ -58,7 +58,16 @@ class App extends Component {
     if(json.items) this.setState({items: json.items})
   }
 
-  
+  foundIsFalse = () => {
+    this.setState({found: false})
+  }
+  foundIsTrue = () => {
+    this.setState({found: true})
+  }
+
+  unlockEdit = () => {
+      this.setState({editing: true})
+  }
 
   render() {
     const items = this.state.items.map(item => {
@@ -66,8 +75,10 @@ class App extends Component {
         <Item 
         key={item.id}
         item={item} 
-        updateItems={this.updateItems} 
-        editItem={this.editItem}/>
+        editItem = { this.editItem }
+        updateItems={this.updateItems}
+        unlockEdit={this.unlockEdit} />
+        
       )
     });
     return <div className="App">
@@ -76,8 +87,14 @@ class App extends Component {
           <ItemForm 
           editItem={this.editItem}
           updateItems={this.updateItems}
+          updateItem={this.updateItem}
           currentItem={this.state.currentItem}
-          editing={this.state.editing} />
+          editing={this.state.editing}
+          foundIsFalse = { this.foundIsFalse }
+          foundIsTrue={this.foundIsTrue} 
+          found={this.state.found}/>
+
+          
         </div>
         <div className="row ItemsList">
           {items}

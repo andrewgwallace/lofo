@@ -45,10 +45,10 @@ app.patch('/api/items/:id', (req, res, next) => {
   })
 })
 
-app.delete('/api/books/:id', (req, res, next) => {
+app.delete('/api/items/:id', (req, res, next) => {
   knex('items').del().where('id', req.params.id)
   .then(() => {
-    knex('items').then(items => res.json(books))
+    knex('items').then(items => res.json(items))
   })
 })
 

@@ -7,19 +7,18 @@ exports.seed = function (knex, Promise) {
       return knex("items").insert([
         {
           id: "1",
-          title: "Hugo",
+          title: "Dog",
           details:
-            "Grey, long-haired. Has neurological deficit and will shake head if he feels scared or threatened. This cat is very timid!",
-          last_seen: "June 1st, 2018",
-          reward: "50",
+            "Responds to 'Ginger'. Black lab mix. Very sweet natured.",
+          last_seen: "05/06/2018",
+          reward: "1000",
           found: false,
           returned: false,
           edit_code: "1dX",
           location: "303 Spring St. New York, NY",
           email: "andrew@galvanize.com",
           phone: "555-1212",
-          img_link:
-            "https://www.amazon.com/drive/v1/nodes/tWBcTGgLT4ub9oLc5IiStQ/contentRedirection?querySuffix=%3FviewBox%3D603%2C635&ownerId=A3EI94I4G6PB8Y&cb=1528050027189"
+          img_link: "https://bit.ly/2Jj7p8Z"
         },
         {
           id: "2",
