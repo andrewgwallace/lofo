@@ -11,22 +11,16 @@ class Item extends Component {
       reward,
       last_seen,
       edit_code,
-      location,
-      id
+      location
     } = this.props.item;
     return (
       <div className="Item">
-        <span
-          onClick={() => this.onClick(id)}
-          className="glyphicon glyphicon-remove-sign Item-Delete"
-        />
         <input
           className="editCodeBox"
           placeholder="Edit code"
           onChange={this.codeChecker}
         />
-        {/* <span onClick={() => this.props.editItem(id)} className="glyphicon glyphicon-pencil Item-Edit" /> */}
-        <img className="item_image" src={img_link} />
+        <img className="item_image" src={img_link} alt={title}/>
         <p>
           {title} | {last_seen} | {location} | {reward}
         </p>
@@ -47,13 +41,9 @@ class Item extends Component {
 
   codeChecker = e => {
     if (e.target.value === this.props.item.edit_code) {
-      this.props.unlockEdit();
+      this.props.editItem(this.props.item.id);
     }
   }
 }
-
-
-
-
 
 export default Item

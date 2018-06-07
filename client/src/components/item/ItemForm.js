@@ -1,9 +1,6 @@
 import React, {Component} from "react";
 import './ItemForm.css'
 import axios from 'axios'
-import DatePicker from "react-datepicker";
-import moment from 'moment';
-import 'react-datepicker/dist/react-datepicker.css';
 
 class ItemForm extends Component {
 
@@ -19,8 +16,11 @@ class ItemForm extends Component {
       reward,
       edit_code,
       email,
-      phone
+      phone,
+      returned
     } = this.props.currentItem;
+
+
     this.props.editing
       ? axios
           .patch(`/api/items/${id}`, { ...this.props.currentItem })
@@ -57,6 +57,7 @@ class ItemForm extends Component {
   
   render() {
     const {
+      id,
       img_link,
       title,
       details,
@@ -64,14 +65,12 @@ class ItemForm extends Component {
       location,
       reward,
       edit_code,
-      returned,
       email,
-      phone
+      phone,
+      returned
     } = this.props.currentItem;
 
-    const {found} = this.props;
-
-    return <div className="row">
+    return <div>
         <form className="col s12 Item" onSubmit={this.onSubmit}>
           {/* Form Header */}
           <h5>{this.props.editing ? "Update Item" : "Add Item"}</h5>
@@ -86,13 +85,6 @@ class ItemForm extends Component {
                 <option value="found">FOUND</option>
               </select>
               <p>Edit code: {edit_code}</p>
-              {/* {
-                this.props.currentItem.edit_code && this.props.currentItem.edit_code.length === 3 ?
-                edit_code 
-                :
-                this.props.setEditCode()
-              }
-              </p> */}
             </div>
           </div>
 
@@ -105,7 +97,6 @@ class ItemForm extends Component {
           <label htmlFor="last_seen">When?</label>
           <input type="date" className="validate" name="last_seen" onChange={this.onChange} value={last_seen} required />
           <br />
-          {/* <DatePicker selected={this.state.date} onSelect={this.handleSelect} onChange={this.setDate} isClearable={true} /> */}
 
           {/* LOCATION FOUND/LOST */}
           <label htmlFor="location">Where?</label>
@@ -140,19 +131,22 @@ class ItemForm extends Component {
           <br />
 
           {/* BUTTONS (conditionally displayed) */}
-          {this.props.editing ? 
-          <div>
-            <button type="submit">Update</button>
-            <button type="submit">Delete</button>
-            <button type="submit">Cancel</button>
-          </div> 
-          : 
-          <div>
-            <input type="submit" value="Add" className="btn btn-primary" />
-          </div>
-          }
+          {this.props.editing ? <div>
+              <a onClick={this.props.itemReturned} className="btn btn-success">Returned</a>
+              <input type="submit" value="Update" className="btn btn-primary"/>
+              <a onClick={() => this.onClick(id)} className="btn btn-danger">Delete</a>
+              <a onClick={this.props.cancelEdit} className="btn btn-default">Cancel</a>
+             
+            </div> : <div>
+              <input type="submit" value="Add" className="btn btn-primary" />
+            </div>}
         </form>
       </div>;
+  }
+  onClick = id => {
+    axios.delete(`/api/items/${id}`)
+      .then((result) => { this.props.updateItems(result.data) }
+      )
   }
 }
 

@@ -22,13 +22,14 @@ app.get('/', (req, res, next) => {
 
 app.get('/api/items', (req, res, next) => {
   knex('items')
+  .where('returned', false)
   .then(items => res.json({items: items }))
   .catch(error => { console.lerror(error); })
 })
 
 app.post("/api/items", (req, res, next) => {
   knex('items')
-  .insert(req.body)
+    .insert({...req.body, returned: false})
   .then(() => {
     knex('items')
     .then(items => res.json(items))
@@ -41,6 +42,7 @@ app.patch('/api/items/:id', (req, res, next) => {
   .where('id', req.params.id)
   .then(() => {
     knex('items')
+    .where('returned', false)
     .then(items => res.json(items))
   })
 })

@@ -11,8 +11,8 @@ exports.up = (knex, Promise) => {
     t.integer("lng");
     t.string("reward");
     t.string("edit_code", 3);
-    t.boolean("returned", false);
-    t.boolean("found", false);
+    t.boolean("returned");
+    t.boolean("found");
     t.string('email').notNull();
     t.string('phone');
     t.timestamps(true, true);

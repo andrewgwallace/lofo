@@ -10,7 +10,7 @@ exports.seed = function (knex, Promise) {
           title: "Dog",
           details:
             "Responds to 'Ginger'. Black lab mix. Very sweet natured.",
-          last_seen: "05/06/2018",
+          last_seen: "2018-04-05",
           reward: "1000",
           found: false,
           returned: false,
@@ -25,7 +25,7 @@ exports.seed = function (knex, Promise) {
           title: "Bracelet",
           details:
             "Silver bracelet with double pattern. 2 inches in diameter, no clasp.",
-          last_seen: "May 23st, 2018",
+          last_seen: "2018-03-12",
           reward: "10",
           found: false,
           edit_code: "9db",
