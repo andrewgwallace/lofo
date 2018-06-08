@@ -128,7 +128,7 @@ class App extends Component {
           <header><h1>LOFO</h1></header>
         </div>
         {/* // MAIN CONTENT AREA */}
-        <div className="container">
+        <div className="container-fluid">
           <div className="row">
             {/* ITEM FORM COLUMN */}
             <div className="col-4">

@@ -6,3 +6,8 @@ textarea {
 input {
   width: 100%
 }
+
+.btn-space {
+  margin-top: .5em;
+  margin-right: .5em;
+}

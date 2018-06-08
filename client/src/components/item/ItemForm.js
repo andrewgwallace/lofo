@@ -73,9 +73,9 @@ class ItemForm extends Component {
     return <div>
         <form className="col s12 Item" onSubmit={this.onSubmit}>
           {/* Form Header */}
-          <h5>{this.props.editing ? "Update Item" : "Add Item"}</h5>
+          <h3>{this.props.editing ? "Update Item" : "Add Item"}</h3>
           {/* Select Dropdown and Edit Code */}
-        <div className="form-group">
+          <div className="form-group">
             <div className="input-field">
               <select onChange={this.rewardVisibility}>
                 <option defaultValue="" disabled>
@@ -86,70 +86,70 @@ class ItemForm extends Component {
               </select>
               <p>Edit code: {edit_code}</p>
             </div>
-         </div>
+          </div>
 
           {/* TITLE */}
           <div className="form-group">
-            <label htmlFor="title">What?</label>
-            <input type="text" className="validate" name="title" onChange={this.onChange} value={title} required />
+            {/* <label htmlFor="title">What?</label> */}
+            <input type="text" placeholder="What?" className="validate form-control" name="title" onChange={this.onChange} value={title} required />
           </div>
-          <br />
+
           {/* DATE MISSING */}
-        <div className="form-group">
-          <label htmlFor="last_seen">When?</label>
-          <input type="date" className="validate" name="last_seen" onChange={this.onChange} value={last_seen} required />
-          <br />
-        </div>
+          <div className="form-group">
+            {/* <label htmlFor="last_seen">When?</label> */}
+            <input type="date" className="validate form-control" name="last_seen" onChange={this.onChange} value={last_seen} required />
+          </div>
 
           {/* LOCATION FOUND/LOST */}
-        <div className="form-group">
-          <label htmlFor="location">Where?</label>
-          <input type="text" name="location" value={location} onChange={this.onChange} required />
-          <br />
-        </div>
+          <div className="form-group">
+            {/* <label htmlFor="location">Where?</label> */}
+            <input className="validate form-control" placeholder="Where?" type="text" name="location" value={location} onChange={this.onChange} required />
+          </div>
 
           {/* EMAIL */}
-        <div className="form-group">
-          <label htmlFor="email">Email</label>
-          <input type="email" name="email" onChange={this.onChange} value={email} required />
-          <br />
-        </div>
+          <div className="form-group">
+            {/* <label htmlFor="email">Email</label> */}
+            <input className="validate form-control" placeholder="Email" type="email" name="email" onChange={this.onChange} value={email} required />
+          </div>
 
           {/* PHONE (optional) */}
-        <div className="form-group">
-          <label htmlFor="phone">Phone (optional)</label>
-          <input type="text" name="phone" onChange={this.onChange} value={phone} />
-          <br />
-        </div>
+          <div className="form-group">
+            {/* <label htmlFor="phone">Phone (optional)</label> */}
+            <input className="validate form-control" placeholder="Contact Number (optional)" type="text" name="phone" onChange={this.onChange} value={phone} />
+          </div>
 
           {/* REWARD (conditionally displayed) */}
           {!this.props.found && <div>
-            <div className="form-group">
-              <label htmlFor="reward">Reward</label>
-              <input type="text" name="reward" onChange={this.onChange} value={reward} />
-              <br />
-            </div>
-          </div>}
+              <div className="form-group">
+                <label htmlFor="reward">Reward</label>
+                <input className="validate form-control" placeholder="Reward (optional)" type="text" name="reward" onChange={this.onChange} value={reward} />
+              </div>
+            </div>}
 
           {/* IMAGE LINK */}
           <label htmlFor="img_link">Image Link</label>
-          <input type="text" name="img_link" onChange={this.onChange} value={img_link} placeholder="http://" />
-          <br />
+          <input className="validate form-control" type="text" name="img_link" onChange={this.onChange} value={img_link} placeholder="http://" />
 
           {/* DETAILS */}
-          <label htmlFor="details">Details</label>
-          <textarea type="text" name="details" onChange={this.onChange} value={details} />
-          <br />
+          {/* <label htmlFor="details">Details</label> */}
+          <textarea className="validate form-control" placeholder="Details" type="text" name="details" onChange={this.onChange} value={details} />
 
           {/* BUTTONS (conditionally displayed) */}
           {this.props.editing ? <div>
-          <button style={{ marginRight: ".5em" }} onClick={this.props.itemReturned} className="btn btn-success">Returned</button>
-          <button style={{ marginRight: ".5em" }} type="submit" value="Update" className="btn btn-primary">Update</button>
-          <button style={{ marginRight: ".5em" }} onClick={() => this.onClick(id)} className="btn btn-danger">Delete</button>
-          <button style={{ marginRight: ".5em" }} onClick={this.props.cancelEdit} className="btn btn-default">Cancel</button>
-             
+              <button onClick={this.props.itemReturned} className="btn btn-lg btn-space btn-success">
+                Returned
+              </button>
+              <button type="submit" value="Update" className="btn btn-lg btn-space btn-primary">
+                Update
+              </button>
+              <button onClick={() => this.onClick(id)} className="btn btn-lg btn-space btn-danger">
+                Delete
+              </button>
+              <button onClick={this.props.cancelEdit} className="btn btn-lg btn-space btn-default">
+                Cancel
+              </button>
             </div> : <div>
-              <input type="submit" value="Add" className="btn btn-primary" />
+            <button type="submit" value="Add" className="btn btn-lg btn-space btn-primary">Add</button>
             </div>}
         </form>
       </div>;

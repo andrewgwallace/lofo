@@ -15,15 +15,15 @@ class Item extends Component {
     } = this.props.item;
     return (
       <div className="card">
-        <img className="card-img-top" src={img_link} alt={title}/>
+        <a href={img_link} target="_blank"><img className="card-img-top" src={img_link} alt={title}/></a>
           <div className="card-body">
             <h5 className="card-title">{title}</h5>
             <ul className="list-group list-group-flush">
               <li className="list-group-item">Last Seen:<br/>{last_seen}</li>
             <li className="list-group-item">Location:<br />{location}</li>
               <li className="list-group-item">Reward:<br />${reward}</li>
+              <li className="list-group-item">{details}</li>
             </ul>
-            <p className="card-text">{details}</p>
             <input className="editCodeBox" placeholder="Edit code" onChange={this.codeChecker} /><br/>
             {edit_code}
             {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
