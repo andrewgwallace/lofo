@@ -16,7 +16,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/', (req, res, next) => {
-  const index = path.join(__dirname, '..client/build/index.html')
+  const index = path.join(__dirname, '../client/build/index.html')
   res.sendFile(index)
 })
 
