@@ -135,16 +135,16 @@ class ItemForm extends Component {
 
           {/* BUTTONS (conditionally displayed) */}
           {this.props.editing ? <div>
-              <button onClick={this.props.itemReturned} className="btn btn-lg btn-space btn-success">
+              <button onClick={this.props.itemReturned} className="btn btn-sm btn-space btn-success">
                 Returned
               </button>
-              <button type="submit" value="Update" className="btn btn-lg btn-space btn-primary">
+              <button type="submit" value="Update" className="btn btn-sm btn-space btn-primary">
                 Update
               </button>
-              <button onClick={() => this.onClick(id)} className="btn btn-lg btn-space btn-danger">
+              <button onClick={() => this.onClick(id)} className="btn btn-sm btn-space btn-danger">
                 Delete
               </button>
-              <button onClick={this.props.cancelEdit} className="btn btn-lg btn-space btn-default">
+              <button onClick={this.props.cancelEdit} className="btn btn-sm btn-space btn-secondary">
                 Cancel
               </button>
             </div> : <div>

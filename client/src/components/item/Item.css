@@ -10,10 +10,13 @@ img {
 }
 
 .card {
-  width: 18rem;
+  width: 16rem;
   border: 1px solid #CCC;
   border-radius: 15px;
-  padding: 1em;
   margin: .5em;
   float: left;
+}
+
+.card img {
+  padding: .5em;
 }

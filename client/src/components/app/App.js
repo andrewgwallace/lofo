@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Item from '../item/Item'
 import ItemForm from '../item/ItemForm'
 import './App.css';
+import Header from '../header/Header'
 
 
 
@@ -123,38 +124,22 @@ class App extends Component {
       );
     });
 
-    return (
-      <div className="App">
-        <div>
-          <header><h1>LOFO</h1></header>
-        </div>
+    return <div className="App">
+      <Header />
         {/* // MAIN CONTENT AREA */}
-        <div className="container">
+        <div className="container-fluid">
           <div className="row">
             {/* ITEM FORM COLUMN */}
-            <div className="col-4">
-              <ItemForm
-                editItem={this.editItem}
-                updateItems={this.updateItems}
-                updateItem={this.updateItem}
-                currentItem={this.state.currentItem}
-                editing={this.state.editing}
-                foundIsFalse={this.foundIsFalse}
-                foundIsTrue={this.foundIsTrue}
-                cancelEdit={this.cancelEdit}
-                itemReturned={this.itemReturned}
-                found={this.state.found}
-              />
-            </div>{" "}
-            {/* form */}
+            <div className="col d-flex flex-column">
+              <ItemForm editItem={this.editItem} updateItems={this.updateItems} updateItem={this.updateItem} currentItem={this.state.currentItem} editing={this.state.editing} foundIsFalse={this.foundIsFalse} foundIsTrue={this.foundIsTrue} cancelEdit={this.cancelEdit} itemReturned={this.itemReturned} found={this.state.found} />
+            </div> {/* form */}
             {/* ITEMS LIST COLUMN */}
-            <div className="col-8">{items}</div> {/* items */}
-          </div>{" "}
-          {/* row */}
-        </div>{" "}
-        {/* container */}
-      </div>
-    );
+            <div className="col-8">
+              {items}
+            </div> {/* items */}
+          </div> {/* row */}
+        </div> {/* container */}
+      </div>;
   }
 }
 
