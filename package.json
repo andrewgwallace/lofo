@@ -9,7 +9,6 @@
     "build-client": "cd ./client && npm build",
     "dev": "npm run serve-client & nodemon ./server/server.js",
     "postinstall": "cd ./client && yarn"
-    // "knex": "knex --knexfile ./db/config.js"
   },
   "keywords": [],
   "author": "",
