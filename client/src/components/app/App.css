@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background: url('./dust_scratches.png');
+  background-repeat: repeat;
 }
 
 .App-logo {

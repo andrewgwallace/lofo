@@ -77,7 +77,7 @@ class ItemForm extends Component {
           {/* Select Dropdown and Edit Code */}
           <div className="form-group">
             <div className="input-field">
-              <select onChange={this.rewardVisibility}>
+              <select className="form-control" onChange={this.rewardVisibility}>
                 <option defaultValue="" disabled>
                   Choose your option
                 </option>

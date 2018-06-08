@@ -50,6 +50,21 @@ exports.seed = function (knex, Promise) {
           phone: "555-9876",
           returned: false,
           img_link: "https://i.ytimg.com/vi/dH2A-Pipf80/hqdefault.jpg"
+        },
+        {
+          id: "4",
+          title: "Gray Cat",
+          details:
+            "Has a neurological deficit and will shake head if he feels scared or threatened. This cat is very timid!",
+          last_seen: "2017-02-11",
+          reward: "50",
+          found: false,
+          edit_code: "SBZ",
+          email: "karen@karensemail.com",
+          location: "Argyle Road, Brookdale Park",
+          phone: "973-462-0411",
+          returned: false,
+          img_link: "https://bit.ly/2HvPzhD"
         }
       ]);
     });
