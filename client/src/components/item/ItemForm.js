@@ -84,7 +84,7 @@ class ItemForm extends Component {
                 <option value="lost">LOST</option>
                 <option value="found">FOUND</option>
               </select>
-              <p>Edit code: {edit_code}</p>
+              <p>Remember your edit code: <b>{edit_code}</b></p>
             </div>
           </div>
 

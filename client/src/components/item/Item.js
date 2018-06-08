@@ -47,8 +47,6 @@ class Item extends Component {
               <li className="list-group-item">{details}</li>
             </ul>
             <input className="editCodeBox" placeholder="Edit code" onChange={this.codeChecker} />
-            <br />
-            {edit_code}
           </div>
         </div>
       </div>;
