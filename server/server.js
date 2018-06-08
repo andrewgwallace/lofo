@@ -7,6 +7,12 @@ const knex = require('../db/knex')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const logger = require('morgan')
+const sgMail = require('@sendgrid/mail');
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
+// using SendGrid's v3 Node.js Library
+// https://github.com/sendgrid/sendgrid-nodejs
+
 
 app.disable('x-powered-by')
 app.use(express.static(path.join(__dirname, '../client/build')))

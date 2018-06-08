@@ -121,7 +121,6 @@ class ItemForm extends Component {
           {/* REWARD (conditionally displayed) */}
           {!this.props.found && <div>
               <div className="form-group">
-                <label htmlFor="reward">Reward</label>
                 <input className="validate form-control" placeholder="Reward (optional)" type="text" name="reward" onChange={this.onChange} value={reward} />
               </div>
             </div>}
