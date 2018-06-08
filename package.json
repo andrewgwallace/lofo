@@ -8,7 +8,7 @@
     "serve-client": "cd ./client && npm start",
     "build-client": "cd ./client && npm build",
     "dev": "npm run serve-client & nodemon ./server/server.js",
-    "postinstall": "cd ./client && yarn",
+    "postinstall": "cd ./client && npm",
     "knex": "knex --knexfile ./db/config.js"
   },
   "keywords": [],
