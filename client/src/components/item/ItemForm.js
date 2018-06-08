@@ -127,7 +127,7 @@ class ItemForm extends Component {
 
           {/* IMAGE LINK */}
           <label htmlFor="img_link">Image Link</label>
-          <input className="validate form-control" type="text" name="img_link" onChange={this.onChange} value={img_link} placeholder="http://" />
+          <input className="validate form-control ItemForm-Image" type="text" name="img_link" onChange={this.onChange} value={img_link} placeholder="http://" />
 
           {/* DETAILS */}
           {/* <label htmlFor="details">Details</label> */}
@@ -135,6 +135,10 @@ class ItemForm extends Component {
 
           {/* BUTTONS (conditionally displayed) */}
           {this.props.editing ? <div>
+          {/* <div className="custom-control custom-checkbox">
+            <input onClick={this.props.isChecked} type="checkbox" className="custom-control-input" id="returnCheck"/>
+              <label className="custom-control-label" htmlFor="returnCheck">Returned?</label>
+              </div> */}
               <button onClick={this.props.itemReturned} className="btn btn-sm btn-space btn-success">
                 Returned
               </button>

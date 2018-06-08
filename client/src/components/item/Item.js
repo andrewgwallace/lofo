@@ -16,14 +16,14 @@ class Item extends Component {
       edit_code,
       location
     } = this.props.item;
-    return <div className="card">
+    return <div className="card card-block">
         <a href={img_link} target="_blank">
           <img className="card-img-top" src={img_link} alt={title} />
         </a>
         <h5 className="card-title">{title}</h5>
-      <a className="collapsed d-block" data-toggle="collapse" id={`details_${id}`} href={`#details_${id}`} aria-expanded="false" aria-controls={`details_${id}`} id="heading-collapsed">
+        <button className="collapsed d-block" role="button" data-toggle="collapse" id={`details_${id}`} href={`#details_${id}`} aria-expanded="false" aria-controls={`details_${id}`} id="heading-collapsed">
           Details
-        </a>
+        </button>
         <div className="collapse" id={`details_${id}`} aria-labelledby="heading-collapsed">
           <div className="card-body">
             <ul className="list-group list-group-flush">
@@ -40,7 +40,8 @@ class Item extends Component {
               </li>
               <li className="list-group-item">
                 Contact:<br />
-                {email}<br />
+                {email}
+                <br />
                 {phone}
               </li>
               <li className="list-group-item">{details}</li>
