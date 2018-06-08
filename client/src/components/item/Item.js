@@ -14,25 +14,24 @@ class Item extends Component {
       location
     } = this.props.item;
     return (
-      <div className="Item">
-        <input
-          className="editCodeBox"
-          placeholder="Edit code"
-          onChange={this.codeChecker}
-        />
-        <img className="item_image" src={img_link} alt={title}/>
-        <p>
-          {title} | {last_seen} | {location} | {reward}
-        </p>
-        <div>
-          <p>
-            {details}
+      <div className="card">
+        <img className="card-img-top" src={img_link} alt={title}/>
+          <div className="card-body">
+            <h5 className="card-title">{title}</h5>
+            <ul className="list-group list-group-flush">
+              <li className="list-group-item">Last Seen:<br/>{last_seen}</li>
+            <li className="list-group-item">Location:<br />{location}</li>
+              <li className="list-group-item">Reward:<br />${reward}</li>
+            </ul>
+            <p className="card-text">{details}</p>
+            <input className="editCodeBox" placeholder="Edit code" onChange={this.codeChecker} /><br/>
             {edit_code}
-          </p>
-        </div>
-      </div>
-    );
+            {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
+          </div>
+</div>
+    )
   }
+
   onClick = id => {
     axios.delete(`/api/items/${id}`).then(result => {
       this.props.updateItems(result.data);

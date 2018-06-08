@@ -3,6 +3,7 @@ import Item from '../item/Item'
 import ItemForm from '../item/ItemForm'
 import './App.css';
 
+
 class App extends Component {
   state = {
     items: [],
@@ -124,13 +125,13 @@ class App extends Component {
     return (
       <div className="App">
         <div>
-          <header>{/* LOFO LOGO */}</header>
+          <header><h1>LOFO</h1></header>
         </div>
         {/* // MAIN CONTENT AREA */}
         <div className="container">
           <div className="row">
             {/* ITEM FORM COLUMN */}
-            <div className="col col-3">
+            <div className="col-4">
               <ItemForm
                 editItem={this.editItem}
                 updateItems={this.updateItems}
@@ -146,7 +147,7 @@ class App extends Component {
             </div>{" "}
             {/* form */}
             {/* ITEMS LIST COLUMN */}
-            <div className="col col-9">{items}</div> {/* items */}
+            <div className="col-8">{items}</div> {/* items */}
           </div>{" "}
           {/* row */}
         </div>{" "}

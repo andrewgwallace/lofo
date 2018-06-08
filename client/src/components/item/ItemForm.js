@@ -75,7 +75,7 @@ class ItemForm extends Component {
           {/* Form Header */}
           <h5>{this.props.editing ? "Update Item" : "Add Item"}</h5>
           {/* Select Dropdown and Edit Code */}
-          <div className="row">
+        <div className="form-group">
             <div className="input-field">
               <select onChange={this.rewardVisibility}>
                 <option defaultValue="" disabled>
@@ -86,39 +86,50 @@ class ItemForm extends Component {
               </select>
               <p>Edit code: {edit_code}</p>
             </div>
-          </div>
+         </div>
 
           {/* TITLE */}
-
-          <label htmlFor="title">What?</label>
-          <input type="text" className="validate" name="title" onChange={this.onChange} value={title} required />
+          <div className="form-group">
+            <label htmlFor="title">What?</label>
+            <input type="text" className="validate" name="title" onChange={this.onChange} value={title} required />
+          </div>
           <br />
           {/* DATE MISSING */}
+        <div className="form-group">
           <label htmlFor="last_seen">When?</label>
           <input type="date" className="validate" name="last_seen" onChange={this.onChange} value={last_seen} required />
           <br />
+        </div>
 
           {/* LOCATION FOUND/LOST */}
+        <div className="form-group">
           <label htmlFor="location">Where?</label>
           <input type="text" name="location" value={location} onChange={this.onChange} required />
           <br />
+        </div>
 
           {/* EMAIL */}
+        <div className="form-group">
           <label htmlFor="email">Email</label>
           <input type="email" name="email" onChange={this.onChange} value={email} required />
           <br />
+        </div>
 
           {/* PHONE (optional) */}
+        <div className="form-group">
           <label htmlFor="phone">Phone (optional)</label>
           <input type="text" name="phone" onChange={this.onChange} value={phone} />
           <br />
+        </div>
 
           {/* REWARD (conditionally displayed) */}
           {!this.props.found && <div>
+            <div className="form-group">
               <label htmlFor="reward">Reward</label>
               <input type="text" name="reward" onChange={this.onChange} value={reward} />
               <br />
-            </div>}
+            </div>
+          </div>}
 
           {/* IMAGE LINK */}
           <label htmlFor="img_link">Image Link</label>
@@ -132,10 +143,10 @@ class ItemForm extends Component {
 
           {/* BUTTONS (conditionally displayed) */}
           {this.props.editing ? <div>
-              <a onClick={this.props.itemReturned} className="btn btn-success">Returned</a>
-              <input type="submit" value="Update" className="btn btn-primary"/>
-              <a onClick={() => this.onClick(id)} className="btn btn-danger">Delete</a>
-              <a onClick={this.props.cancelEdit} className="btn btn-default">Cancel</a>
+          <button style={{ marginRight: ".5em" }} onClick={this.props.itemReturned} className="btn btn-success">Returned</button>
+          <button style={{ marginRight: ".5em" }} type="submit" value="Update" className="btn btn-primary">Update</button>
+          <button style={{ marginRight: ".5em" }} onClick={() => this.onClick(id)} className="btn btn-danger">Delete</button>
+          <button style={{ marginRight: ".5em" }} onClick={this.props.cancelEdit} className="btn btn-default">Cancel</button>
              
             </div> : <div>
               <input type="submit" value="Add" className="btn btn-primary" />
