@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run build-client && node ./server/server.js",
-    "serve-client": "cd ./client && npm start",
-    "build-client": "cd ./client && npm build",
+    "serve-client": "cd ./client && yarn start",
+    "build-client": "cd ./client && yarn build",
     "dev": "npm run serve-client & nodemon ./server/server.js",
     "postinstall": "cd ./client && yarn"
   },
