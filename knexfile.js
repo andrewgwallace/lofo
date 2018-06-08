@@ -21,10 +21,10 @@ module.exports = {
     client: 'pg',
     connection: process.env.DATABASE_URL || connectionString,
     migrations: {
-      directory: 'db/migrations',
+      directory: __dirname + 'db/migrations',
     },
     seeds: {
-      directory: 'db/seeds/production',
+      directory: __dirname + 'db/seeds/production',
     },
     pool: {
       min: 2,
