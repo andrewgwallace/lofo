@@ -24,13 +24,13 @@ knex seed:run
 ```
 *(NOTE: if you do not have knex installed globally, you will need to append* `npm run`to the above commands.
 
-###Locally, you may run the following command:
+### Locally, you may run the following command:
 
 ```npm run dev```
 
 This will run both the client and server on different ports.
 
-###Production Development
+### Production Development
 To test as a production build, you may run the following command:
 
 ```npm start```
