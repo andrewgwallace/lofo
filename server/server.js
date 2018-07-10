@@ -24,7 +24,7 @@ app.get('/api/items', (req, res, next) => {
   knex('items')
   .where('returned', false)
   .then(items => res.json({items: items }))
-  .catch(error => { console.lerror(error); })
+  .catch(error => { console.error(error); })
 })
 
 app.post("/api/items", (req, res, next) => {

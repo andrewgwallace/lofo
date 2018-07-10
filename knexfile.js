@@ -10,7 +10,7 @@ module.exports = {
       directory: __dirname + '/db/migrations',
     },
     seeds: {
-      director: __dirname + '/db/seeds',
+      directory: __dirname + '/db/seeds/production',
     },
     pool: {
       min: 1,
