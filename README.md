@@ -22,7 +22,7 @@ Next, run the necessary migrations and seeds from within the api directory.
 knex migrate:latest
 knex seed:run
 ```
-*(NOTE: if you do not have knex installed globally, you will need to append* `npm run`to the above commands.
+*(NOTE: if you do not have knex installed globally, you will need to prepend* `npm run`to the above commands.
 
 ### Locally, you may run the following command:
 
